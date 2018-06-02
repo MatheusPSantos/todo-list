@@ -12,14 +12,6 @@
 import InputTask from './components/InputTask'
 import TaskList from './components/TaskList'
 
-let tasks = []
-let task = new Task()
-task.completed = false
-task.title = 'Tarefa'
-tasks.push(task)
-tasks.push(task)
-tasks.push(task)
-
 export default {
   name: 'App',
   components: {
@@ -28,10 +20,10 @@ export default {
   },
   data () {
     return {
-      tasks: tasks
+      tasks: []
     }
   },
-  mounted: {
+  methods: {
     addTask (task) {
       this.tasks.push(task)
     }
