@@ -3,7 +3,8 @@
   <li class="todo" v-for="todo in sortedTasks" :key="todo">
     <div class="view">
       <input type="checkbox" class="toggle" v-on:click="completeTask(todo)">
-      <label>{{ todo.title }}</label>
+      <label v-if="todo.completed" class="todo-completed">{{ todo.title }}</label>
+      <label v-else>{{ todo.title }}</label>
     </div>
   </li>
 </ul>
@@ -47,7 +48,9 @@ export default {
   position: relative;
   color: rgba(0,0,0,.7);
 }
-
+.todo-completed {
+  text-decoration: line-through;
+}
 .view {
   text-align: left;
 }
