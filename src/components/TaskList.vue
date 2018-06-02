@@ -3,8 +3,14 @@
   <li class="todo" v-for="todo in sortedTasks" :key="todo">
     <div class="view">
       <input type="checkbox" class="toggle" v-on:click="completeTask(todo)">
+      <!-- modo de modificação da view sem alteração da classe do Label 
       <label v-if="todo.completed" class="todo-completed">{{ todo.title }}</label>
       <label v-else>{{ todo.title }}</label>
+      -->
+      <!-- modo com alteração da view e alteração da classe do Label usando :class -->
+      <label v-bind:class="{'todo-completed': todo.completed}">
+        {{ todo.title }}
+      </label>
     </div>
   </li>
 </ul>
